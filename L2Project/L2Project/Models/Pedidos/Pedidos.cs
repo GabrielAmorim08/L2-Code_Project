@@ -1,7 +1,11 @@
-﻿namespace L2Project.Models.Pedidos
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace L2Project.Models.Pedidos
 {
-    public class Pedidos 
+    [Table("Pedidos")]
+    public class Pedidos
     {
-        public string Pedido { get; set; }
+        public Guid Id { get; set; }
+        public int Pedido_id { get; set; }
     }
 }

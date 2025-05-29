@@ -14,6 +14,7 @@ namespace L2Project.Models
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Models.Pedidos.Pedidos> Pedidos { get; set; }
+        public DbSet<Pedidos.Pedidos> Pedidos { get; set; }
+        public DbSet<Produtos> Produtos { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 using L2Project.Business;
 using L2Project.Interfaces;
+using L2Project.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,10 +13,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddSingleton<IPedido, PedidoBO>();
+
+#region CONNECTION STRING
+string connectionString = builder.Configuration.GetConnectionString("String");
+builder.Services.AddDbContext<Db_L2_project_context>(op => op.UseSqlServer(connectionString));
+#endregion
+
+#region INJEÇÃO DE DEPENDENCIA
+builder.Services.AddScoped<IPedido, PedidoBO>();
+#endregion
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

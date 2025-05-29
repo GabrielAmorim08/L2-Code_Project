@@ -1,4 +1,5 @@
 ﻿using L2Project.DTO;
+using L2Project.DTO.PedidoDTO;
 using L2Project.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,6 @@ namespace L2Project.Controllers
 
         [HttpPost]
         [Route("OrdenarPedidos")]
-        public ResultadoVO<List<PedidosDTO>> OrdenarPedidos([FromBody] string pedidos) => _business.OrganizarPedidos(pedidos);
+        public ResultadoVO<List<object>> OrdenarPedidos([FromBody] PedidoDTO pedidos) => _business.OrganizarPedidos(pedidos);
     }
 }
